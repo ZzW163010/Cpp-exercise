@@ -117,3 +117,56 @@ int main() {
     cout << "false" << endl;
     return 0;
 }
+
+//字符乘方
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main(){
+    string str;
+    
+    while(cin >> str && str != "."){
+        int m = 0, n = 0;
+        
+        for(int i = 1; i <= str.size(); i++){
+            if(str.size() % i == 0) m = str.size() / i;
+            int j = 0;
+            
+            for(j = i; j < str.size(); j += i){
+                if(str.substr(j, i) != str.substr(0, i)) break;
+            }
+            if(j == str.size()){
+                if(str.size() / i > n) n =  str.size() / i;
+            }
+        }
+        cout << n << endl;
+    }
+}
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main(){
+    string str;
+    
+    while(cin >> str && str != "."){
+        int len = str.size();
+        for(int i = 1; i <= len; i++){
+            if(len % i == 0){
+                int n = len / i;
+                string scp;
+                
+                for(int j = 0; j < n; j++) scp += str.substr(0, i);
+                if(scp == str){
+                    cout << n << endl;
+                    break;
+                }
+            }
+        }
+    }
+}
